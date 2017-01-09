@@ -1,0 +1,269 @@
+
+<!-- /top navigation -->
+
+<!-- page content -->
+<div class="right_col" role="main">
+
+  <%= render "dashboard/filters" %>
+
+  <!-- top tiles -->
+  <div class="row tile_count">
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-leaf"></i> Sustainability Score</span>
+      <div class="count green">88.3</div>
+      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>5% </i> From last Week</span>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-tachometer"></i> Average MPG (Mean)</span>
+      <div class="count">5.22</div>
+      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>4% </i> From last Week</span>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-tachometer"></i> Average MPG (Mode)</span>
+      <div class="count">5.80</div>
+      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>10% </i> From last Week</span>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-user"></i> Best MPG</span>
+      <div class="count">6.2</div>
+      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>14% </i> From last Week</span>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-user"></i> Worst MPG</span>
+      <div class="count">4.6</div>
+      <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>-20% </i> From last Week</span>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-clock-o"></i> Total Idle Minutes</span>
+      <div class="count">2046</div>
+      <span class="count_bottom"><i class="green"><i class="fa fa-sort-desc"></i>-11% </i> From last Week</span>
+    </div>
+  </div>
+  <!-- /top tiles -->
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="dashboard_graph">
+
+        <div class="row x_title">
+          <div class="col-md-6">
+            <h3>Average MPG <small>Across all trucks</small></h3>
+          </div>
+          <div class="col-md-6">
+            <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+              <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+              <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9 col-sm-9 col-xs-12">
+          <div id="placeholder33" style="height: 260px; display: none" class="demo-placeholder"></div>
+          <div style="width: 100%;">
+            <div id="canvas_dahs" class="demo-placeholder" style="width: 100%; height:270px;"></div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
+          <div class="x_title">
+            <h2>Top Drivers by Average MPG</h2>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-6">
+            <div>
+              <p>Joy Bailey</p>
+              <div class="">
+                <div class="progress progress_sm" style="width: 76%;">
+                  <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p>Greg Leffer</p>
+              <div class="">
+                <div class="progress progress_sm" style="width: 76%;">
+                  <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="62"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-6">
+            <div>
+              <p>Jim Swansson</p>
+              <div class="">
+                <div class="progress progress_sm" style="width: 76%;">
+                  <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p>Angela Lewin</p>
+              <div class="">
+                <div class="progress progress_sm" style="width: 76%;">
+                  <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="47"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+  </div>
+  <br />
+
+  <div class="row">
+
+
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <div class="x_panel tile fixed_height_320">
+        <div class="x_title">
+          <h2>Aerodynamic Improvements</h2>
+
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <h4>Adoption Across Entire Fleet</h4>
+          <div class="widget_summary">
+            <div class="w_left w_25">
+              <span>Trailer Fairings</span>
+            </div>
+            <div class="w_center w_55">
+              <div class="progress">
+                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 34%;">
+                  <span class="sr-only">34% of Fleet</span>
+                </div>
+              </div>
+            </div>
+            <div class="w_right w_20">
+              <span>376</span>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="widget_summary">
+            <div class="w_left w_25">
+              <span>Wheel Covers</span>
+            </div>
+            <div class="w_center w_55">
+              <div class="progress">
+                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                  <span class="sr-only">60% of Fleet</span>
+                </div>
+              </div>
+            </div>
+            <div class="w_right w_20">
+              <span>748</span>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="widget_summary">
+            <div class="w_left w_25">
+              <span>Narrow Mudflaps</span>
+            </div>
+            <div class="w_center w_55">
+              <div class="progress">
+                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 9%;">
+                  <span class="sr-only">9% Complete</span>
+                </div>
+              </div>
+            </div>
+            <div class="w_right w_20">
+              <span>99</span>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="widget_summary">
+            <div class="w_left w_25">
+              <span>Vortex Generators</span>
+            </div>
+            <div class="w_center w_55">
+              <div class="progress">
+                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 4%;">
+                  <span class="sr-only">4% Complete</span>
+                </div>
+              </div>
+            </div>
+            <div class="w_right w_20">
+              <span>35</span>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="widget_summary">
+            <div class="w_left w_25">
+              <span>Underbody Devices</span>
+            </div>
+            <div class="w_center w_55">
+              <div class="progress">
+                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 21%;">
+                  <span class="sr-only">21% Complete</span>
+                </div>
+              </div>
+            </div>
+            <div class="w_right w_20">
+              <span>288</span>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-8 col-sm-8 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>Average MPG <small>geo-presentation</small></h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div class="dashboard-widget-content">
+            <div class="col-md-4 hidden-small">
+              <h2 class="line_30">MPG per State</h2>
+
+              <table class="countries_list">
+                <tbody>
+                  <tr>
+                    <td>Nebraska</td>
+                    <td class="fs15 fw700 text-right">6.3</td>
+                  </tr>
+                  <tr>
+                    <td>Iowa</td>
+                    <td class="fs15 fw700 text-right">6.1</td>
+                  </tr>
+                  <tr>
+                    <td>Minnesota</td>
+                    <td class="fs15 fw700 text-right">6.0</td>
+                  </tr>
+                  <tr>
+                    <td>Mississippi</td>
+                    <td class="fs15 fw700 text-right">5.9</td>
+                  </tr>
+                  <tr>
+                    <td>Ohio</td>
+                    <td class="fs15 fw700 text-right">5.9</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="world-map-gdp" class="col-md-8 col-sm-12 col-xs-12" style="height:230px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /page content -->
+
+<!-- footer content -->
+<footer>
+  <div class="pull-right">
+    Nothing More, LLC
+  </div>
+  <div class="clearfix"></div>
+</footer>
+<!-- /footer content -->
