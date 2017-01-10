@@ -5,13 +5,13 @@
 <div class="right_col" role="main">
 
   <%= render "dashboard/filters" %>
-  <h2>Driving Profile for: <%= @driver %></h2>
+  <h2>Driving Profile for: <%= @driver[:name] %></h2>
   <!-- top tiles -->
   <div class="row tile_count">
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
       <span class="count_top"><i class="fa fa-leaf"></i> Sustainability Score</span>
-      <div class="count green">88.3</div>
-      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>5% </i> From last Week</span>
+      <div class="count green"><%= @driver[:sustainability_score] %></div>
+      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>1% </i> From last Week</span>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
       <span class="count_top"><i class="fa fa-tachometer"></i> Average MPG (Mean)</span>
@@ -47,7 +47,7 @@
 
         <div class="row x_title">
           <div class="col-md-6">
-            <h3>Average MPG <small>for <%= @driver %></small></h3>
+            <h3>Average MPG <small>for <%= @driver[:name] %></small></h3>
           </div>
           <div class="col-md-6">
             <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
@@ -57,57 +57,12 @@
           </div>
         </div>
 
-        <div class="col-md-9 col-sm-9 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-xs-12">
           <div id="placeholder33" style="height: 260px; display: none" class="demo-placeholder"></div>
           <div style="width: 100%;">
-            <div id="canvas_dahs" class="demo-placeholder" style="width: 100%; height:270px;"></div>
+            <div id="canvas_dahs_driver" class="demo-placeholder" style="width: 100%; height:270px;"></div>
           </div>
         </div>
-        <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
-          <div class="x_title">
-            <h2>Average MPG</h2>
-            <div class="clearfix"></div>
-          </div>
-
-          <div class="col-md-12 col-sm-12 col-xs-6">
-            <div>
-              <p>Joy Bailey</p>
-              <div class="">
-                <div class="progress progress_sm" style="width: 76%;">
-                  <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p>Greg Leffer</p>
-              <div class="">
-                <div class="progress progress_sm" style="width: 76%;">
-                  <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="62"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 col-sm-12 col-xs-6">
-            <div>
-              <p>Jim Swansson</p>
-              <div class="">
-                <div class="progress progress_sm" style="width: 76%;">
-                  <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p>Angela Lewin</p>
-              <div class="">
-                <div class="progress progress_sm" style="width: 76%;">
-                  <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="47"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
         <div class="clearfix"></div>
       </div>
     </div>
@@ -116,7 +71,6 @@
   <br />
 
   <div class="row">
-
 
     <div class="col-md-4 col-sm-4 col-xs-12">
       <div class="x_panel tile fixed_height_320">
