@@ -22,7 +22,7 @@
 
   <div class="row" style="padding-top: 15px;">
     <div class="col-xs-12 filterByLane__options is-hidden">
-      <form class="form-inline">
+      <form class="form-inline" action="/lanes" method="GET">
         <div class="form-group">
           <label for="from">From</label>
           <input type="text" class="form-control" id="from" placeholder="Minneapolis, MN">
@@ -46,7 +46,7 @@
     </div>
 
     <div class="col-xs-12 filterByCustomer__options is-hidden">
-      <form class="form-inline">
+      <form class="form-inline" action="/customers" method="GET">
         <div class="form-group">
           <label for="customerName">Customer Name</label>
           <input type="text" class="form-control" id="customerName" placeholder="Customer Name">
@@ -57,7 +57,7 @@
 
 
     <div class="col-xs-12 filterByTruck__options is-hidden">
-      <form class="form-inline">
+      <form class="form-inline" action="/trucks" method="GET">
         <div class="form-group">
           <label for="truckId">Truck ID</label>
           <input type="text" class="form-control" id="truckId" placeholder="123456789">
