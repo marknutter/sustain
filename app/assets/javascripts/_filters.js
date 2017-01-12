@@ -4,10 +4,9 @@
 document.addEventListener("DOMContentLoaded", function(event) {
   var laneFilter = document.querySelector('#filterByLane');
   var driverFilter = document.querySelector('#filterByDriver');
-  var customerFilter = document.querySelector('#filterByCustomer');
   var truckFilter = document.querySelector('#filterByTruck');
 
-  var filters = [laneFilter, driverFilter, customerFilter, truckFilter];
+  var filters = [laneFilter, driverFilter, truckFilter];
 
   filters.forEach(function(filter) {
     filter.addEventListener('click', function(event) {

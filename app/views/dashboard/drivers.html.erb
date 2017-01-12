@@ -5,206 +5,93 @@
 <div class="right_col" role="main">
 
   <%= render "dashboard/filters" %>
-  <h2>Driving Profile for: <%= @driver[:name] %></h2>
-  <!-- top tiles -->
-  <div class="row tile_count">
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-leaf"></i> Sustainability Score</span>
-      <div class="count green"><%= @driver[:sustainability_score] %></div>
-      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>1% </i> From last Week</span>
-    </div>
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-tachometer"></i> Average MPG (Mean)</span>
-      <div class="count">5.22</div>
-      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>4% </i> From last Week</span>
-    </div>
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-tachometer"></i> Average MPG (Mode)</span>
-      <div class="count">5.80</div>
-      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>10% </i> From last Week</span>
-    </div>
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-user"></i> Best MPG</span>
-      <div class="count">6.2</div>
-      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>14% </i> From last Week</span>
-    </div>
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-user"></i> Worst MPG</span>
-      <div class="count">4.6</div>
-      <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>-20% </i> From last Week</span>
-    </div>
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-clock-o"></i> Total Idle Minutes</span>
-      <div class="count">87</div>
-      <span class="count_bottom"><i class="green"><i class="fa fa-sort-desc"></i>-11% </i> From last Week</span>
-    </div>
-  </div>
-  <!-- /top tiles -->
+  <div class="">
 
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-      <div class="dashboard_graph">
 
-        <div class="row x_title">
-          <div class="col-md-6">
-            <h3>Average MPG <small>for <%= @driver[:name] %></small></h3>
-          </div>
-          <div class="col-md-6">
-            <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-              <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-              <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-            </div>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Driver Report </h2>
 
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div id="placeholder33" style="height: 260px; display: none" class="demo-placeholder"></div>
-          <div style="width: 100%;">
-            <div id="canvas_dahs_driver" class="demo-placeholder" style="width: 100%; height:270px;"></div>
-          </div>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-
-  </div>
-  <br />
-
-  <div class="row">
-
-    <div class="col-md-4 col-sm-4 col-xs-12">
-      <div class="x_panel tile fixed_height_320">
-        <div class="x_title">
-          <h2>Aerodynamic Improvements</h2>
-
-          <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-          <h4>Adoption Across Entire Fleet</h4>
-          <div class="widget_summary">
-            <div class="w_left w_25">
-              <span>Trailer Fairings</span>
-            </div>
-            <div class="w_center w_55">
-              <div class="progress">
-                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 34%;">
-                  <span class="sr-only">34% of Fleet</span>
-                </div>
-              </div>
-            </div>
-            <div class="w_right w_20">
-              <span>376</span>
-            </div>
             <div class="clearfix"></div>
           </div>
-
-          <div class="widget_summary">
-            <div class="w_left w_25">
-              <span>Wheel Covers</span>
-            </div>
-            <div class="w_center w_55">
-              <div class="progress">
-                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                  <span class="sr-only">60% of Fleet</span>
+          <div class="x_content">
+            <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+              <div class="profile_img">
+                <div id="crop-avatar">
+                  <!-- Current avatar -->
+                  <img class="img-responsive avatar-view" src="images/jen-driver.jpg" alt="Avatar" title="Change the avatar">
                 </div>
               </div>
+              <h3>Jen Driver</h3>
+
+              <ul class="list-unstyled user_data">
+                <li><i class="fa fa-map-marker user-profile-icon"></i> Minnesota, USA
+                </li>
+
+                <li>
+                  <i class="fa fa-road user-profile-icon"></i> 1,200,050 Miles
+                </li>
+              </ul>
+
+              <br />
+
+              <div class="tile_stats_count">
+                <span class="count_top" style="font-size: 15px; font-weight:bold;"><i class="fa fa-leaf"></i> Efficiency</span>
+                <div class="count green" style="font-size:60px;font-weight: bold">92.6</div>
+                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>2% </i> From last Week</span>
+              </div>
+
+
             </div>
-            <div class="w_right w_20">
-              <span>748</span>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="widget_summary">
-            <div class="w_left w_25">
-              <span>Narrow Mudflaps</span>
-            </div>
-            <div class="w_center w_55">
-              <div class="progress">
-                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 9%;">
-                  <span class="sr-only">9% Complete</span>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+
+              <div class="profile_title">
+                <div class="col-md-6">
+                  <h2>Average MPG Per Month</h2>
+                </div>
+                <div class="col-md-6">
+                  <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
+                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i></b>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="w_right w_20">
-              <span>99</span>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="widget_summary">
-            <div class="w_left w_25">
-              <span>Vortex Generators</span>
-            </div>
-            <div class="w_center w_55">
-              <div class="progress">
-                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 4%;">
-                  <span class="sr-only">4% Complete</span>
-                </div>
-              </div>
-            </div>
-            <div class="w_right w_20">
-              <span>35</span>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="widget_summary">
-            <div class="w_left w_25">
-              <span>Underbody Devices</span>
-            </div>
-            <div class="w_center w_55">
-              <div class="progress">
-                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 21%;">
-                  <span class="sr-only">21% Complete</span>
-                </div>
-              </div>
-            </div>
-            <div class="w_right w_20">
-              <span>288</span>
-            </div>
-            <div class="clearfix"></div>
-          </div>
+              <!-- start of user-activity-graph -->
+              <div id="graph_bar" style="width:100%; height:280px;"></div>
+              <!-- end of user-activity-graph -->
 
-        </div>
-      </div>
-    </div>
+              <!-- start skills -->
+              <h4>Efficient Driving Proficiency</h4>
+              <ul class="list-unstyled user_data">
+                <li>
+                  <p>Braking</p>
+                  <div class="progress progress_sm">
+                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                  </div>
+                </li>
+                <li>
+                  <p>Accelerating</p>
+                  <div class="progress progress_sm">
+                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+                  </div>
+                </li>
+                <li>
+                  <p>Pace</p>
+                  <div class="progress progress_sm">
+                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
+                  </div>
+                </li>
+                <li>
+                  <p>Idling</p>
+                  <div class="progress progress_sm">
+                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                  </div>
+                </li>
+              </ul>
+              <!-- end of skills -->
 
-
-    <div class="col-md-8 col-sm-8 col-xs-12">
-      <div class="x_panel">
-        <div class="x_title">
-          <h2>Average MPG <small>geo-presentation</small></h2>
-          <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-          <div class="dashboard-widget-content">
-            <div class="col-md-4 hidden-small">
-              <h2 class="line_30">MPG per State</h2>
-
-              <table class="countries_list">
-                <tbody>
-                  <tr>
-                    <td>Nebraska</td>
-                    <td class="fs15 fw700 text-right">6.3</td>
-                  </tr>
-                  <tr>
-                    <td>Iowa</td>
-                    <td class="fs15 fw700 text-right">6.1</td>
-                  </tr>
-                  <tr>
-                    <td>Minnesota</td>
-                    <td class="fs15 fw700 text-right">6.0</td>
-                  </tr>
-                  <tr>
-                    <td>Mississippi</td>
-                    <td class="fs15 fw700 text-right">5.9</td>
-                  </tr>
-                  <tr>
-                    <td>Ohio</td>
-                    <td class="fs15 fw700 text-right">5.9</td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
-            <div id="world-map-gdp" class="col-md-8 col-sm-12 col-xs-12" style="height:230px;"></div>
           </div>
         </div>
       </div>
@@ -221,3 +108,106 @@
   <div class="clearfix"></div>
 </footer>
 <!-- /footer content -->
+
+
+<script>
+      $(function() {
+        Morris.Bar({
+          element: 'graph_bar',
+          data: [
+            { "period": "Jun", "Average MPG": 4.6 },
+            { "period": "Jul", "Average MPG": 5.3 },
+            { "period": "Aug", "Average MPG": 5.7 },
+            { "period": "Sep", "Average MPG": 6.0 },
+            { "period": "Oct", "Average MPG": 6.5 },
+            { "period": "Nov", "Average MPG": 6.3 },
+            { "period": "Dec", "Average MPG": 6.6 }
+          ],
+          xkey: 'period',
+          hideHover: 'auto',
+          barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+          ykeys: ['Hours worked', 'sorned'],
+          labels: ['Hours worked', 'SORN'],
+          xLabelAngle: 60,
+          resize: true
+        });
+
+        $MENU_TOGGLE.on('click', function() {
+          $(window).resize();
+        });
+      });
+    </script>
+
+    <!-- datepicker -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+        var cb = function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+          //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
+        }
+
+        var optionSet1 = {
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment(),
+          minDate: '01/01/2015',
+          maxDate: '01/01/2017',
+          dateLimit: {
+            days: 60
+          },
+          showDropdowns: true,
+          showWeekNumbers: true,
+          timePicker: false,
+          timePickerIncrement: 1,
+          timePicker12Hour: true,
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          opens: 'left',
+          buttonClasses: ['btn btn-default'],
+          applyClass: 'btn-small btn-primary',
+          cancelClass: 'btn-small',
+          format: 'MM/DD/YYYY',
+          separator: ' to ',
+          locale: {
+            applyLabel: 'Submit',
+            cancelLabel: 'Clear',
+            fromLabel: 'From',
+            toLabel: 'To',
+            customRangeLabel: 'Custom',
+            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            firstDay: 1
+          }
+        };
+        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+        $('#reportrange').daterangepicker(optionSet1, cb);
+        $('#reportrange').on('show.daterangepicker', function() {
+          console.log("show event fired");
+        });
+        $('#reportrange').on('hide.daterangepicker', function() {
+          console.log("hide event fired");
+        });
+        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+        });
+        $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+          console.log("cancel event fired");
+        });
+        $('#options1').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+        });
+        $('#options2').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+        });
+        $('#destroy').click(function() {
+          $('#reportrange').data('daterangepicker').remove();
+        });
+      });
+    </script>

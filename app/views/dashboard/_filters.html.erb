@@ -1,21 +1,20 @@
+<style>
+  .filter {
+    height: 50px;
+  }
+</style>
+
 <div id="filters">
   <!-- Slice & Dice content -->
   <div class="row">
-    <div id="filterByLane" class="col-md-2 col-sm-4 col-xs-6">
-      <a>Filter By Lane</a>
-    </div>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <a id="filterByLane" class="btn btn-default">Lane</a>
 
-    <div id="filterByDriver" class="col-md-2 col-sm-4 col-xs-6">
-      <a>Filter By Driver</a>
-    </div>
-    <div id="filterByCustomer" class="col-md-2 col-sm-4 col-xs-6">
-      <a>Filter By Customer</a>
-    </div>
-    <div id="filterByTruck" class="col-md-2 col-sm-4 col-xs-6">
-      <a>Filter By Truck</a>
-    </div>
-    <div class="col-md-2 col-sm-4 col-xs-6">
-      <a href="/">Overview</a>
+      <a id="filterByDriver" class="btn btn-default">Driver</a>
+
+      <a id="filterByTruck" class="btn btn-default">Truck</a>
+
+
     </div>
   </div>
 
@@ -40,16 +39,6 @@
         <div class="form-group">
           <label for="driverName">Driver Name</label>
           <input name="driverName" type="text" class="form-control" id="driverName" placeholder="John Doe">
-        </div>
-        <button type="submit" class="btn btn-default">Filter</button>
-      </form>
-    </div>
-
-    <div class="col-xs-12 filterByCustomer__options is-hidden">
-      <form class="form-inline" action="/customers" method="GET">
-        <div class="form-group">
-          <label for="customerName">Customer Name</label>
-          <input type="text" class="form-control" id="customerName" placeholder="Customer Name">
         </div>
         <button type="submit" class="btn btn-default">Filter</button>
       </form>
