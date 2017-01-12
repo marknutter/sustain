@@ -1,0 +1,213 @@
+
+<!-- /top navigation -->
+
+<!-- page content -->
+<div class="right_col" role="main">
+
+  <%= render "dashboard/filters" %>
+  <div class="">
+
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Driver Report </h2>
+
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+              <div class="profile_img">
+                <div id="crop-avatar">
+                  <!-- Current avatar -->
+                  <img class="img-responsive avatar-view" src="images/jen-driver.jpg" alt="Avatar" title="Change the avatar">
+                </div>
+              </div>
+              <h3>Jen Driver</h3>
+
+              <ul class="list-unstyled user_data">
+                <li><i class="fa fa-map-marker user-profile-icon"></i> Minnesota, USA
+                </li>
+
+                <li>
+                  <i class="fa fa-road user-profile-icon"></i> 1,200,050 Miles
+                </li>
+              </ul>
+
+              <br />
+
+              <div class="tile_stats_count">
+                <span class="count_top" style="font-size: 15px; font-weight:bold;"><i class="fa fa-leaf"></i> Efficiency</span>
+                <div class="count green" style="font-size:60px;font-weight: bold">92.6</div>
+                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>2% </i> From last Week</span>
+              </div>
+
+
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+
+              <div class="profile_title">
+                <div class="col-md-6">
+                  <h2>Average MPG Per Month</h2>
+                </div>
+                <div class="col-md-6">
+                  <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
+                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i></b>
+                  </div>
+                </div>
+              </div>
+              <!-- start of user-activity-graph -->
+              <div id="graph_bar" style="width:100%; height:280px;"></div>
+              <!-- end of user-activity-graph -->
+
+              <!-- start skills -->
+              <h4>Efficient Driving Proficiency</h4>
+              <ul class="list-unstyled user_data">
+                <li>
+                  <p>Braking</p>
+                  <div class="progress progress_sm">
+                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                  </div>
+                </li>
+                <li>
+                  <p>Accelerating</p>
+                  <div class="progress progress_sm">
+                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+                  </div>
+                </li>
+                <li>
+                  <p>Pace</p>
+                  <div class="progress progress_sm">
+                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
+                  </div>
+                </li>
+                <li>
+                  <p>Idling</p>
+                  <div class="progress progress_sm">
+                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                  </div>
+                </li>
+              </ul>
+              <!-- end of skills -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /page content -->
+
+<!-- footer content -->
+<footer>
+  <div class="pull-right">
+    Nothing More, LLC
+  </div>
+  <div class="clearfix"></div>
+</footer>
+<!-- /footer content -->
+
+
+<script>
+      $(function() {
+        Morris.Bar({
+          element: 'graph_bar',
+          data: [
+            { "period": "Jun", "Average MPG": 4.6 },
+            { "period": "Jul", "Average MPG": 5.3 },
+            { "period": "Aug", "Average MPG": 5.7 },
+            { "period": "Sep", "Average MPG": 6.0 },
+            { "period": "Oct", "Average MPG": 6.5 },
+            { "period": "Nov", "Average MPG": 6.3 },
+            { "period": "Dec", "Average MPG": 6.6 }
+          ],
+          xkey: 'period',
+          hideHover: 'auto',
+          barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+          ykeys: ['Hours worked', 'sorned'],
+          labels: ['Hours worked', 'SORN'],
+          xLabelAngle: 60,
+          resize: true
+        });
+
+        $MENU_TOGGLE.on('click', function() {
+          $(window).resize();
+        });
+      });
+    </script>
+
+    <!-- datepicker -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+        var cb = function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+          //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
+        }
+
+        var optionSet1 = {
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment(),
+          minDate: '01/01/2015',
+          maxDate: '01/01/2017',
+          dateLimit: {
+            days: 60
+          },
+          showDropdowns: true,
+          showWeekNumbers: true,
+          timePicker: false,
+          timePickerIncrement: 1,
+          timePicker12Hour: true,
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          opens: 'left',
+          buttonClasses: ['btn btn-default'],
+          applyClass: 'btn-small btn-primary',
+          cancelClass: 'btn-small',
+          format: 'MM/DD/YYYY',
+          separator: ' to ',
+          locale: {
+            applyLabel: 'Submit',
+            cancelLabel: 'Clear',
+            fromLabel: 'From',
+            toLabel: 'To',
+            customRangeLabel: 'Custom',
+            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            firstDay: 1
+          }
+        };
+        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+        $('#reportrange').daterangepicker(optionSet1, cb);
+        $('#reportrange').on('show.daterangepicker', function() {
+          console.log("show event fired");
+        });
+        $('#reportrange').on('hide.daterangepicker', function() {
+          console.log("hide event fired");
+        });
+        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+        });
+        $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+          console.log("cancel event fired");
+        });
+        $('#options1').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+        });
+        $('#options2').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+        });
+        $('#destroy').click(function() {
+          $('#reportrange').data('daterangepicker').remove();
+        });
+      });
+    </script>

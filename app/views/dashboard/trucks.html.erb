@@ -1,0 +1,772 @@
+
+<!-- /top navigation -->
+
+<!-- page content -->
+<div class="right_col" role="main">
+
+  <%= render "dashboard/filters" %>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>MPG by Service Years</h2>
+
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+
+          <div id="echart_scatter" style="height:350px;"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- top tiles -->
+  <div class="row">
+
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="x_panel tile fixed_height_320">
+        <div class="x_title">
+          <h2>Aerodynamic Improvements</h2>
+
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <h4>Adoption Across Entire Fleet</h4>
+          <div class="widget_summary">
+            <div class="w_left w_25">
+              <span>Trailer Fairings</span>
+            </div>
+            <div class="w_center w_55">
+              <div class="progress">
+                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 34%;">
+                  <span class="sr-only">34% of Fleet</span>
+                </div>
+              </div>
+            </div>
+            <div class="w_right w_20">
+              <span>376</span>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="widget_summary">
+            <div class="w_left w_25">
+              <span>Wheel Covers</span>
+            </div>
+            <div class="w_center w_55">
+              <div class="progress">
+                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                  <span class="sr-only">60% of Fleet</span>
+                </div>
+              </div>
+            </div>
+            <div class="w_right w_20">
+              <span>748</span>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="widget_summary">
+            <div class="w_left w_25">
+              <span>Narrow Mudflaps</span>
+            </div>
+            <div class="w_center w_55">
+              <div class="progress">
+                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 9%;">
+                  <span class="sr-only">9% Complete</span>
+                </div>
+              </div>
+            </div>
+            <div class="w_right w_20">
+              <span>99</span>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="widget_summary">
+            <div class="w_left w_25">
+              <span>Vortex Generators</span>
+            </div>
+            <div class="w_center w_55">
+              <div class="progress">
+                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 4%;">
+                  <span class="sr-only">4% Complete</span>
+                </div>
+              </div>
+            </div>
+            <div class="w_right w_20">
+              <span>35</span>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="widget_summary">
+            <div class="w_left w_25">
+              <span>Underbody Devices</span>
+            </div>
+            <div class="w_center w_55">
+              <div class="progress">
+                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 21%;">
+                  <span class="sr-only">21% Complete</span>
+                </div>
+              </div>
+            </div>
+            <div class="w_right w_20">
+              <span>288</span>
+            </div>
+            <div class="clearfix"></div>
+
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>Efficiency Improvements <small>Expected vs Realized</small></h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <canvas id="canvasRadar"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- /page content -->
+
+<!-- footer content -->
+<footer>
+  <div class="pull-right">
+    Nothing More, LLC
+  </div>
+  <div class="clearfix"></div>
+</footer>
+<!-- /footer content -->
+
+
+   <!-- Chart.js -->
+    <script>
+      Chart.defaults.global.legend = {
+        enabled: false
+      };
+
+
+
+      var ctx = document.getElementById("canvasRadar");
+      var data = {
+        labels: ["Trailer Fairings", "Wheel Covers", "Narrow Mudflaps", "Vortex Generators", "Underbody Devices"],
+        datasets: [{
+          label: "Expected Improvement",
+          backgroundColor: "rgba(3, 88, 106, 0.2)",
+          borderColor: "rgba(3, 88, 106, 0.80)",
+          pointBorderColor: "rgba(3, 88, 106, 0.80)",
+          pointBackgroundColor: "rgba(3, 88, 106, 0.80)",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          data: [10, 5, 3, 15, 12]
+        }, {
+          label: "Actual Improvement",
+          backgroundColor: "rgba(38, 185, 154, 0.2)",
+          borderColor: "rgba(38, 185, 154, 0.85)",
+          pointColor: "rgba(38, 185, 154, 0.85)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(151,187,205,1)",
+          data: [6, 6, 1, 16, 7]
+        }]
+      };
+
+      var canvasRadar = new Chart(ctx, {
+        type: 'radar',
+        data: data,
+      });
+
+    </script>
+    <!-- /Chart.js -->
+
+
+
+    <script>
+      var theme = {
+          color: [
+              '#26B99A', '#34495E', '#BDC3C7', '#3498DB',
+              '#9B59B6', '#8abb6f', '#759c6a', '#bfd3b7'
+          ],
+
+          title: {
+              itemGap: 8,
+              textStyle: {
+                  fontWeight: 'normal',
+                  color: '#408829'
+              }
+          },
+
+          dataRange: {
+              color: ['#1f610a', '#97b58d']
+          },
+
+          toolbox: {
+              color: ['#408829', '#408829', '#408829', '#408829']
+          },
+
+          tooltip: {
+              backgroundColor: 'rgba(0,0,0,0.5)',
+              axisPointer: {
+                  type: 'line',
+                  lineStyle: {
+                      color: '#408829',
+                      type: 'dashed'
+                  },
+                  crossStyle: {
+                      color: '#408829'
+                  },
+                  shadowStyle: {
+                      color: 'rgba(200,200,200,0.3)'
+                  }
+              }
+          },
+
+          dataZoom: {
+              dataBackgroundColor: '#eee',
+              fillerColor: 'rgba(64,136,41,0.2)',
+              handleColor: '#408829'
+          },
+          grid: {
+              borderWidth: 0
+          },
+
+          categoryAxis: {
+              axisLine: {
+                  lineStyle: {
+                      color: '#408829'
+                  }
+              },
+              splitLine: {
+                  lineStyle: {
+                      color: ['#eee']
+                  }
+              }
+          },
+
+          valueAxis: {
+              axisLine: {
+                  lineStyle: {
+                      color: '#408829'
+                  }
+              },
+              splitArea: {
+                  show: true,
+                  areaStyle: {
+                      color: ['rgba(250,250,250,0.1)', 'rgba(200,200,200,0.1)']
+                  }
+              },
+              splitLine: {
+                  lineStyle: {
+                      color: ['#eee']
+                  }
+              }
+          },
+          timeline: {
+              lineStyle: {
+                  color: '#408829'
+              },
+              controlStyle: {
+                  normal: {color: '#408829'},
+                  emphasis: {color: '#408829'}
+              }
+          },
+
+          k: {
+              itemStyle: {
+                  normal: {
+                      color: '#68a54a',
+                      color0: '#a9cba2',
+                      lineStyle: {
+                          width: 1,
+                          color: '#408829',
+                          color0: '#86b379'
+                      }
+                  }
+              }
+          },
+          map: {
+              itemStyle: {
+                  normal: {
+                      areaStyle: {
+                          color: '#ddd'
+                      },
+                      label: {
+                          textStyle: {
+                              color: '#c12e34'
+                          }
+                      }
+                  },
+                  emphasis: {
+                      areaStyle: {
+                          color: '#99d2dd'
+                      },
+                      label: {
+                          textStyle: {
+                              color: '#c12e34'
+                          }
+                      }
+                  }
+              }
+          },
+          force: {
+              itemStyle: {
+                  normal: {
+                      linkStyle: {
+                          strokeColor: '#408829'
+                      }
+                  }
+              }
+          },
+          chord: {
+              padding: 4,
+              itemStyle: {
+                  normal: {
+                      lineStyle: {
+                          width: 1,
+                          color: 'rgba(128, 128, 128, 0.5)'
+                      },
+                      chordStyle: {
+                          lineStyle: {
+                              width: 1,
+                              color: 'rgba(128, 128, 128, 0.5)'
+                          }
+                      }
+                  },
+                  emphasis: {
+                      lineStyle: {
+                          width: 1,
+                          color: 'rgba(128, 128, 128, 0.5)'
+                      },
+                      chordStyle: {
+                          lineStyle: {
+                              width: 1,
+                              color: 'rgba(128, 128, 128, 0.5)'
+                          }
+                      }
+                  }
+              }
+          },
+          gauge: {
+              startAngle: 225,
+              endAngle: -45,
+              axisLine: {
+                  show: true,
+                  lineStyle: {
+                      color: [[0.2, '#86b379'], [0.8, '#68a54a'], [1, '#408829']],
+                      width: 8
+                  }
+              },
+              axisTick: {
+                  splitNumber: 10,
+                  length: 12,
+                  lineStyle: {
+                      color: 'auto'
+                  }
+              },
+              axisLabel: {
+                  textStyle: {
+                      color: 'auto'
+                  }
+              },
+              splitLine: {
+                  length: 18,
+                  lineStyle: {
+                      color: 'auto'
+                  }
+              },
+              pointer: {
+                  length: '90%',
+                  color: 'auto'
+              },
+              title: {
+                  textStyle: {
+                      color: '#333'
+                  }
+              },
+              detail: {
+                  textStyle: {
+                      color: 'auto'
+                  }
+              }
+          },
+          textStyle: {
+              fontFamily: 'Arial, Verdana, sans-serif'
+          }
+      };
+
+
+      var echartScatter = echarts.init(document.getElementById('echart_scatter'), theme);
+
+      echartScatter.setOption({
+        title: {
+        },
+        tooltip: {
+          trigger: 'axis',
+          showDelay: 0,
+          axisPointer: {
+            type: 'cross',
+            lineStyle: {
+              type: 'dashed',
+              width: 1
+            }
+          }
+        },
+        legend: {
+          data: ['Data1']
+        },
+        toolbox: {
+          show: true,
+          feature: {
+            saveAsImage: {
+              show: true,
+              title: "Save Image"
+            }
+          }
+        },
+        xAxis: [{
+          type: 'value',
+          scale: true,
+          axisLabel: {
+            formatter: '{value} yrs'
+          }
+        }],
+        yAxis: [{
+          type: 'value',
+          scale: true,
+          axisLabel: {
+            formatter: '{value} MPG'
+          }
+        }],
+        series: [{
+          name: 'MPG by Service Years',
+          type: 'scatter',
+          tooltip: {
+            trigger: 'item',
+            formatter: function(params) {
+              if (params.value.length > 1) {
+                return params.seriesName + ' :<br/>' + params.value[0] + 'cm ' + params.value[1] + 'kg ';
+              } else {
+                return params.seriesName + ' :<br/>' + params.name + ' : ' + params.value + 'kg ';
+              }
+            }
+          },
+          data: [
+            [1.6, 6.2],
+            [4.5, 4.5],
+            [4.2, 4.5],
+            [3.0, 6.0],
+            [3.6, 5.8],
+            [4.0, 5.0],
+            [3.6, 6.1],
+            [4.8, 4.3],
+            [2.8, 5.2],
+            [5.2, 5.2],
+            [5.2, 4.5],
+            [4.2, 5.9],
+            [2.5, 6.9],
+            [2.0, 5.4],
+            [0.0, 6.0],
+            [4.8, 4.2],
+            [4.2, 5.2],
+            [3.2, 5.0],
+            [3.8, 5.0],
+            [1.8, 6.6],
+            [0.6, 6.5],
+            [2.5, 5.0],
+            [3.2, 6.8],
+            [3.8, 5.5],
+            [2.8, 5.2],
+            [4.5, 4.3],
+            [4.8, 4.5],
+            [3.3, 5.9],
+            [3.8, 5.5],
+            [1.0, 7.3],
+            [2.2, 5.4],
+            [5.0, 4.3],
+            [3.0, 5.5],
+            [4.4, 5.0],
+            [5.8, 3.5],
+            [3.6, 6.1],
+            [3.2, 5.0],
+            [2.1, 5.2],
+            [3.9, 6.3],
+            [2.6, 5.4],
+            [2.3, 5.9],
+            [1.5, 7.2],
+            [4.5, 5.6],
+            [0.2, 6.0],
+            [0.3, 6.3],
+            [1.3, 6.6],
+            [2.2, 5.1],
+            [0.2, 6.0],
+            [2.9, 5.0],
+            [4.8, 5.5],
+            [1.0, 6.6],
+            [4.1, 4.7],
+            [5.9, 4.2],
+            [2.5, 5.4],
+            [4.3, 4.5],
+            [4.8, 5.3],
+            [0.7, 6.3],
+            [0.0, 6.5],
+            [2.0, 6.0],
+            [0.3, 6.5],
+            [2.7, 5.0],
+            [4.3, 5.0],
+            [2.0, 5.0],
+            [3.1, 5.7],
+            [0.0, 6.0],
+            [4.7, 4.3],
+            [3.2, 5.0],
+            [5.7, 4.0],
+            [1.1, 6.7],
+            [5.7, 4.6],
+            [1.7, 6.1],
+            [2.3, 5.5],
+            [0.0, 5.5],
+            [4.3, 4.0],
+            [2.5, 6.0],
+            [5.7, 4.3],
+            [4.8, 5.2],
+            [5.9, 4.5],
+            [0.6, 6.0],
+            [3.2, 5.2],
+            [4.4, 4.3],
+            [1.2, 6.5],
+            [4.8, 5.3],
+            [1.6, 5.1],
+            [2.8, 4.5],
+            [4.8, 4.2],
+            [4.0, 5.5],
+            [0.0, 6.8],
+            [4.2, 5.2],
+            [5.9, 4.5],
+            [3.4, 5.4],
+            [1.2, 6.0],
+            [1.6, 6.2],
+            [5.7, 4.4],
+            [2.2, 5.5],
+            [1.6, 4.3],
+            [3.8, 5.8],
+            [5.6, 4.0],
+            [2.8, 5.8],
+            [4.4, 4.9],
+            [3.6, 5.0],
+            [3.2, 5.1],
+            [3.4, 4.2],
+            [4.0, 5.9],
+            [1.4, 5.2],
+            [2.2, 5.8],
+            [0.6, 6.0],
+            [4.8, 5.3],
+            [2.0, 5.0],
+            [5.2, 4.5],
+            [2.6, 6.8],
+            [5.2, 5.7],
+            [1.8, 6.5],
+            [3.4, 6.4],
+            [4.5, 4.8],
+            [3.6, 5.5],
+            [3.0, 5.6],
+            [5.2, 5.2],
+            [5.0, 4.3],
+            [4.0, 5.2],
+            [0.2, 5.2],
+            [0.2, 4.3],
+            [4.8, 5.5],
+            [1.8, 5.5],
+            [2.4, 5.2],
+            [2.0, 5.7],
+            [4.2, 4.5],
+            [3.2, 5.5],
+            [3.8, 5.0],
+            [4.4, 5.9],
+            [1.0, 6.8],
+            [4.8, 4.3],
+            [4.8, 4.5],
+            [3.2, 5.0],
+            [0.5, 6.9],
+            [2.4, 5.2],
+            [4.4, 5.0],
+            [1.8, 5.0],
+            [2.2, 5.1],
+            [5.5, 4.3],
+            [3.8, 5.6],
+            [4.6, 5.0],
+            [4.2, 4.1],
+            [2.7, 5.4],
+            [3.2, 5.8],
+            [4.5, 5.5],
+            [1.8, 6.2],
+            [2.0, 5.5],
+            [3.6, 5.3],
+            [3.2, 5.6],
+            [4.5, 5.0],
+            [2.8, 5.9],
+            [4.1, 4.1],
+            [0.0, 6.6],
+            [2.3, 5.1],
+            [5.0, 4.4],
+            [5.9, 4.0],
+            [0.4, 5.4],
+            [4.1, 5.2],
+            [4.5, 5.6],
+            [5.9, 4.2],
+            [5.5, 4.8],
+            [4.5, 4.7],
+            [2.4, 5.6],
+            [1.4, 5.6],
+            [5.9, 4.6],
+            [1.6, 5.2],
+            [2.8, 5.2],
+            [2.6, 5.1],
+            [1.6, 5.6],
+            [5.9, 4.3],
+            [4.1, 5.1],
+            [1.8, 6.9],
+            [0.7, 6.4],
+            [2.8, 5.1],
+            [0.0, 6.8],
+            [1.2, 6.1],
+            [2.7, 5.3],
+            [4.1, 5.9],
+            [4.1, 4.8],
+            [5.9, 4.7],
+            [5.0, 4.9],
+            [3.3, 5.3],
+            [5.0, 4.6],
+            [5.5, 4.1],
+            [5.5, 4.3],
+            [1.6, 5.5],
+            [1.6, 5.8],
+            [3.6, 5.6],
+            [5.2, 5.1],
+            [2.7, 5.1],
+            [2.6, 5.9],
+            [3.9, 5.6],
+            [3.2, 5.5],
+            [3.6, 5.5],
+            [2.0, 5.9],
+            [3.6, 5.3],
+            [3.2, 5.4],
+            [3.4, 5.0],
+            [5.0, 4.2],
+            [0.5, 6.6],
+            [4.5, 5.6],
+            [4.5, 5.6],
+            [5.9, 4.7],
+            [4.0, 4.5],
+            [3.6, 5.5],
+            [4.5, 4.6],
+            [3.3, 5.4],
+            [3.7, 5.2],
+            [0.9, 5.1],
+            [0.5, 6.7],
+            [0.9, 6.1],
+            [3.6, 5.2],
+            [4.5, 5.2],
+            [4.1, 5.2],
+            [0.5, 5.3],
+            [2.7, 5.6],
+            [2.7, 5.6],
+            [2.3, 5.1],
+            [2.4, 5.6],
+            [3.3, 5.4],
+            [3.0, 5.9],
+            [3.6, 5.2],
+            [2.3, 5.2],
+            [3.7, 5.2],
+            [5.4, 4.3],
+            [4.1, 4.1],
+            [5.5, 4.0],
+            [3.3, 5.2],
+            [0.5, 6.0],
+            [4.5, 4.6],
+            [2.3, 5.6],
+            [1.4, 5.6],
+            [1.2, 5.9],
+            [1.8, 6.6],
+            [3.6, 5.3],
+            [3.4, 5.4],
+            [4.5, 5.5],
+            [3.6, 5.1],
+            [0.0, 6.0],
+            [3.6, 5.0],
+            [1.4, 6.6],
+            [5.5, 4.5],
+            [3.6, 5.6],
+            [0.9, 6.3],
+            [0.0, 6.2],
+            [2.8, 5.9],
+            [3.3, 5.5],
+            [4.1, 4.0],
+            [3.6, 5.3],
+            [3.3, 5.5],
+            [5.5, 4.3],
+            [1.2, 5.7],
+            [1.4, 6.6],
+            [2.8, 5.5],
+            [1.8, 5.5],
+            [5.5, 4.4],
+            [1.6, 6.7],
+            [2.4, 5.0],
+            [3.3, 4.8]
+          ],
+          markPoint: {
+            data: [{
+              type: 'max',
+              name: 'Max'
+            }, {
+              type: 'min',
+              name: 'Min'
+            }]
+          },
+          markLine: {
+            data: [{
+              type: 'average',
+              name: 'Mean'
+            }]
+          }
+        }]
+      });
+
+
+      var dataStyle = {
+        normal: {
+          label: {
+            show: false
+          },
+          labelLine: {
+            show: false
+          }
+        }
+      };
+
+      var placeHolderStyle = {
+        normal: {
+          color: 'rgba(0,0,0,0)',
+          label: {
+            show: false
+          },
+          labelLine: {
+            show: false
+          }
+        },
+        emphasis: {
+          color: 'rgba(0,0,0,0)'
+        }
+      };
+
+    </script>
